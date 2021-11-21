@@ -1,0 +1,484 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/photogallery.css' %}" rel="stylesheet">
+
+    <div class="container">
+        <diV style="height: 100px"></diV>
+        <div class="row">
+            <div class="box-shadow-full">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-5">
+                                <div class="about-img">
+                                    <img src="{% static 'assets/img/bio1.jpg' %}"
+                                         class="img-fluid rounded b-shadow-a" alt="">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-7">
+                                <div class="about-info">
+                                    <p><span class="title-s">Name: </span> <span>Udaya S.J.B Rana</span></p>
+                                    <p><span class="title-s">Date of Birth: </span>
+                                        <span>February 27, 1970</span></p>
+                                    <p><span class="title-s">Address: </span> <span>Kupandole Hts., Lalitpur Ward – I, Kathmandu, Nepal</span>
+                                    </p>
+                                    <p><span class="title-s">Telephone: </span>
+                                        <span>5523608 / 5527871;</span>
+                                    <p><span class="title-s">Mobile: </span> <span> +977-9851061424</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-me pt-4 pt-md-0">
+                        <div class="title-box-2">
+                            <h5 class="title-left">
+                                Biography
+                            </h5>
+                        </div>
+                        <div class="accordion accordion-flush" id="accordionExample">
+
+
+                            second
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                        Education
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Cornell University, Ithaca, New York.
+                                        Master of Arts, January 1994
+                                        Thesis: The Foreign Policy of Nepal: with emphasis on relations
+                                        with
+                                        India and China.
+                                        St. Stephen's College, University of Delhi, India.
+                                        Bachelor of Arts, Honors in History, May 1991​
+                                        Minor: Political Science
+                                        Lawrence School, Sanawar (Shimla Hills), India.
+                                        All India Senior School Certificate Examination, May 1988
+                                        St. Joseph's College (North Point), Darjeeling, India.
+                                        Indian Certificate of Secondary Education, February 1986
+                                        <strong>This is the first item's accordion body.</strong> It is
+                                        shown by default, until the collapse plugin adds the appropriate
+                                        classes that we use to style each element. These classes control
+                                        the
+                                        overall appearance, as well as the showing and hiding via CSS
+                                        transitions. You can modify any of this with custom CSS or
+                                        overriding our default variables. It's also worth noting that
+                                        just
+                                        about any HTML can go within the <code>.accordion-body</code>,
+                                        though the transition does limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                        Political Background
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse"
+                                     aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Member of Constituent Assembly-Elect 2013. From Lalitpur
+                                        Constituency # 1
+                                        President Nepal Tarun Dal 2012-
+                                        Nepali Congress Candidate for Constituency Assembly-2008
+                                        (Direct)
+                                        Elections from Lalitpur Constituency # 1. Lost by slim margin of
+                                        around 900 votes.
+                                        Nepali Congress MahaSamiti member Lalitpur Constituency # 1
+                                        First Vice President of Nepal Tarun Dal 2007- 2011
+                                        General Secretary of Nepal Tarun Dal 2006-2007
+                                        Central Secretariat Member, Executive Committee Member & Chief
+                                        of
+                                        Foreign Department of Nepal Tarun Dal. 2002-2006
+                                        President Nepal Tarun Dal, Lalitpur District 1998-2002.
+                                        District Executive Committee Member of Nepali Congress Lalitpur.
+                                        Joined Nepal Students Union (NSU) in 2045/03/21 B.S.
+                                        Vice President International Union of Socialist Youth (IUSY)
+                                        1996/97.
+                                        President of Nepal Students Union (NSU), Delhi Unit 2046/47.
+                                        <strong>This is the second item's accordion body.</strong> It is
+                                        hidden by default, until the collapse plugin adds the
+                                        appropriate
+                                        classes that we use to style each element. These classes control
+                                        the
+                                        overall appearance, as well as the showing and hiding via CSS
+                                        transitions. You can modify any of this with custom CSS or
+                                        overriding our default variables. It's also worth noting that
+                                        just
+                                        about any HTML can go within the <code>.accordion-body</code>,
+                                        though the transition does limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                        Work Experience
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                     aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Rehabilitation of the Rajkulo of Lalitpur
+                                        Consultant/Advisor (August 2005 – July 2009)
+                                        Rehabilitation of the ancient royal irrigation canal that fed
+                                        water
+                                        to the Patan city from the outskirts of the valley. The canal is
+                                        in
+                                        a dilapidated condition. The project is funded by the Government
+                                        of
+                                        India and the implementing agencies are Environment and Heritage
+                                        Conservation Nepal, Lalitpur Municipality and the local user’s
+                                        committee.
+                                        WHO & RUWDUC
+                                        Research Associate (September- December 2004)
+                                        The project funded by WHO and Family Health Division, Ministry
+                                        of
+                                        Health on "Collection and Compilation of available information
+                                        with
+                                        regard of Gender Based Violence in Nepal". Materials were both
+                                        in
+                                        Nepali and English; the report/catalogue was submitted in
+                                        English.
+                                        The Asia Foundation (TAF)
+                                        Consultant (March – May 2004)
+                                        Worked under a team leader to conduct an assessment study on
+                                        US-AID
+                                        funded project on Combating Trafficking of Women and Children in
+                                        Nepal. Personally responsible for developing tools, checklists
+                                        and
+                                        for writing the final report. Besides meeting concerned persons
+                                        in
+                                        Kathmandu visited majority of the programme districts, including
+                                        several VDCs. Analysis and recommendations were made for the
+                                        next
+                                        phase of the programme.
+                                        SNV, Nepal & SAMANATA
+                                        Consultant (August 2003 – February 2004)
+                                        Hired as a consultant for a Study on “Decentralized Governance &
+                                        Its
+                                        Impacts on Development”. The study examined how the three
+                                        different
+                                        models of (local) governance impacted the delivery of goods and
+                                        services to the people. Personally responsible for tools
+                                        development, questionnaire and writing the final report. Besides
+                                        interviewing central level decision makers also visited
+                                        districts
+                                        for field study.
+                                        ESPS/DANIDA – Environment Sector Programme Support, Kathmandu
+                                        Team Leader (July – August 2003)
+                                        Environmental Management / Environment Sector Programme Support)
+                                        trained Women Electric Vehicle (EV) Drivers”. Task included
+                                        impact
+                                        assessment study for the training that was carried out and also
+                                        recommendation were made for the new and more effective training
+                                        regime. Various methods were used, such as, questionnaires,
+                                        interviews, on site visits and group discussions.
+                                        Development Support Center (DESC), Lalitpur, Nepal
+                                        Project Coordinator (April 1994-September2001)
+                                        Coordinated rural development activities in South Lalitpur for
+                                        DESC,
+                                        a Non-Government Organization. Responsibility included
+                                        communication
+                                        with donor agencies affiliated organizations, local people and
+                                        agencies. Conducted various projects ranging from health,
+                                        educations, social mobilization, development and income
+                                        generating
+                                        programmes. Most importantly developed model village in
+                                        Bhattedada
+                                        for growth of value added agro product, animal husbandry with
+                                        new
+                                        technology and market support.
+                                        Nepal Traditional Crafts Pvt. Ltd. (NTC), Lalitpur, Nepal
+                                        Assistant Manager (March 1994 - till date)
+                                        NTC is the oldest and one of the largest exporters of Nepalese
+                                        Handicrafts from Nepal; a family business established in 1964.
+                                        Besides the over all management of the company, concentrate in
+                                        marketing and product development. Participate in various trade
+                                        fairs in Europe including, Inhorgenta Jewelry Fair, Munich,
+                                        March
+                                        1994; Frankfurt International Autumn Fair Tendence, Germany,
+                                        August
+                                        1997; Maision & Object Trade Fair, Paris, September 1997.
+                                    </div>
+                                </div>
+                            </div>
+
+                            second
+                            third
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                        Activities
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse"
+                                     aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                        Nepal Tarun Dal (NTD)
+                                        President (2012-Till Date)
+                                        First Vice President (2007-2011)
+                                        General Secretary (2006-2007)
+                                        Central Secretariat Member& Chief of Foreign Department
+                                        (2002-2006)
+                                        Founding President NTD, Lalitpur District (1998-2002)
+                                        NTD is the youth organization of the Nepali Congress Party.
+                                        Traveled
+                                        extensively through out the country for organizational work.
+                                        Represented NTD in various national and international programmes
+                                        and
+                                        seminars. Elected to the central committee at the National
+                                        Convention in July 2007 with the largest margin of votes.
+                                        Center for Consolidation for Democracy (CCD), Jawalakhel, Nepal
+                                        Member (1995-till date)
+                                        A non-profit, non-government institution committed to the basic
+                                        value of democracy and cause of social justice. CCD activities
+                                        concentrates in two fronts i) publications related to the
+                                        subject
+                                        including documentations, survey and data collection studies ii)
+                                        organizing discussions, workshops, seminars and discourse
+                                        related to
+                                        the subject; Personally: a consultant in a Data
+                                        collection/survey
+                                        conducted by the centre titled “Nepal People, Polity and
+                                        Governance,
+                                        A Survey of People’s Response to the Democratic Experiment
+                                        (1991-95)” and published its findings.
+                                        International Union of Socialist Youth (IUSY)
+                                        Vice President (1995-1997)
+                                        An INGO with its secretariat in Vienna, Austria, it has a total
+                                        of
+                                        124 member organizations from youth organizations from more than
+                                        95
+                                        nations. Primary objective of the international is to promote
+                                        solidarity amongst youth that share a similar ideology and
+                                        political
+                                        platform. Elected to the post of Vice President at the XXI IUSY
+                                        World Congress at Reggio-Emila, Italy; personally responsible
+                                        for
+                                        activities in the Asia-Pacific region and carried out a study on
+                                        Child Labour.
+                                        Nepalese Students Association (NSA) of Delhi
+                                        President (1990-1991)
+                                        A non-political organization working towards the welfare of the
+                                        Nepalese community in Delhi. Membership exceeded more than
+                                        thousand
+                                        students. Organized and led demonstrations supporting the
+                                        "People's
+                                        Movement" for democracy in Nepal. Efforts received coverage in
+                                        leading Indian newspapers and magazines, including the Indian
+                                        Express and the Telegraph.
+                                        Nava Yug (Magazine of Nepalese Students Association of Delhi)
+                                        Assistant Editor (1989-1990)
+                                        Spent the spring of 1993 conducting intensive primary research
+                                        for
+                                        MA thesis - The Foreign Policy of Nepal, with emphasis on
+                                        relations
+                                        with India and China - in Kathmandu. Interviewed and discussed
+                                        the
+                                        relevant issues with prominent Nepalese, Indian and other
+                                        politicians, former ministers, diplomats and scholars.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                            aria-expanded="false" aria-controls="collapseFive">
+                                        Travel
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse"
+                                     aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Traveled to more than 30 countries in North America, South
+                                        America,
+                                        Africa, Europe and Asia-Pacific region and to more than 60
+                                        districts
+                                        in Nepal.
+                                    </div>
+                                </div>
+                            </div>
+
+                            third
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSix"
+                                            aria-expanded="false" aria-controls="collapseSix">
+                                        International seminars and training
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse"
+                                     aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Participated in th International Leaders programme on invitation
+                                        of
+                                        the Foreign & Commonwealth Office British Government in London
+                                        November 22-27, 2015
+                                        Participated in Program for Visiting Members of Parliament,
+                                        Leadership in the Digital Economy on invitation of NDI, IRG and
+                                        House of Democracy Partnership Washington, D.C. & San Francisco
+                                        and
+                                        Silicon Valley, CA, February 10-20, 2015
+                                        Member of a high level delegation led by former Prime Minister
+                                        Rt.
+                                        Hon. Sher Bahadur Deuba to China on the invitation of the
+                                        Governor
+                                        of Sichuan Province to grace the inaugural function of the
+                                        Chendu
+                                        Trade Fair, May 2007.
+                                        Member of Nepali Congress (D) delegation lead by party Vice
+                                        President Mr. Prakash Man Singh to Delhi to garner support for
+                                        the
+                                        Peoples Movement. Met the leader of opposition Mr. L.K. Advani,
+                                        President of BJP Mr. Rajnath Singh, various leaders of the
+                                        Indian
+                                        National Congress and the Foreign Secretary of India amongst
+                                        others,
+                                        February 2006.
+                                        Led the Nepalese delegation to IUSY Asia-Pacific Committee
+                                        Meeting,
+                                        Bangkok, June 10-12, 2005.
+                                        Participated in the conference, “India-Nepal Relations
+                                        Perspectives
+                                        for the Future” on invitation of Observer Research Foundation
+                                        (ORF)
+                                        Institute of Asian Studies - Nepal Center, New Delhi, February
+                                        13 to
+                                        14, 2003.
+                                        Led the Nepalese delegation to International Youth Conference on
+                                        Terrorism, organized by Bharatiya Janata Yuva Morcha, New Delhi,
+                                        February 10 to 11, 2003. The Conference was inaugurated by the
+                                        Prime
+                                        Minster of India A.B. Vajpayee and Closing Session was chaired
+                                        by
+                                        Deputy Prime Minster of India L.K. Advani.
+                                        Wilton Park Conference, South Asia Forum: Governance and Local
+                                        Development in South Asia; for 40 “high fliers” from South Asia,
+                                        under the age of 40, West Sussex, UK, April 29 to May 3, 2002.
+                                        Member of delegation from Nepal to the IUSY Asia-Pacific
+                                        Committee
+                                        meeting, Bangkok, Thailand, July 19 to 22, 2001.
+                                        Leader of the delegation from Nepal to participate at XXII IUSY
+                                        World Congress, Lillehammer, Norway, November 13 to 16, 1997.
+                                        Member of the delegation led by Former Prime Minister Hon.
+                                        Sher.Bahadur Deuba to participated in Socialist International
+                                        (SI)
+                                        World Council Meeting in Delhi November 9 to 11, 1997
+                                        Participated in IUSY Presidium Meeting at Buenos-Aries
+                                        (Argentina),
+                                        February 1997; Abidjan (Ivory Coast, Africa) May 1997; Paris
+                                        (France) September 1997 and Oslo (Norway) November 1997.
+                                        Coordinator of Organizing Committee and a participant on behalf
+                                        of
+                                        the host organization at the IUSY World Council Meeting in
+                                        Kathmandu, December 6 to 8, 1996, Asia-Pacific Regional
+                                        Committee
+                                        Meeting, December 2 to 4, 1996 and IUSY Presidium Meeting
+                                        December
+                                        5, 1996.
+                                        Member of delegation from Nepal to XXI IUSY World Congress at
+                                        Modena, Italy, September 14-17, 1995, elected Vice President for
+                                        the
+                                        Asia Pacific Region 1995 to 1997.
+                                        Participated in Training and Enterprise Development for Export
+                                        (TED)
+                                        Integrated Programme, Export Marketing and Market Research
+                                        Project,
+                                        jointly organized by PRODEC, Finland and FNCCI, Nepal,
+                                        1995-1998.
+                                        Participated in the Second IUSY Asia-Pacific Committee Meeting
+                                        in
+                                        New Delhi, June 1995.
+                                        Participated in First IUSY Asia-Pacific Regional Committee
+                                        Meeting
+                                        in Kathmandu June 1993.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSeven">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSeven"
+                                            aria-expanded="false" aria-controls="collapseSeven">
+                                        Publications
+                                    </button>
+                                </h2>
+                                <div id="collapseSeven" class="accordion-collapse collapse"
+                                     aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        MA Thesis: The Foreign Policy of Nepal, with Emphasis on
+                                        Relations
+                                        with India and China.
+                                        A new beginning, The Kathmandu Post, September 22, 2015
+                                        Samriddhi ko Lagi Sambidhan, (Nepali) Kantipur August 26, 2015
+                                        Sambhavana ho Yuva (Nepali) Kantipur August 11, 2015
+                                        Yasari Huncha Rajnitik Sitrta (Nepali) Kantipur, July 25, 2015
+                                        Budget Ka Pratamikta (Nepali), Nagarik, June 30, 2014
+                                        Unity move of Congress, The Kathmandu Post, March 8, 2004
+                                        Empowerment of Youth, The Kathmandu Post, July 11, 1995.
+                                        Why a Youth Council? The Kathmandu Post, June 23, 1994.
+                                        SAARC and the Role of the Regional Blocs. The Kathmandu Post,
+                                        July
+                                        14, 1993.
+                                        What is IUSY? FOTS Nepal '95 News, A monthly Journal of Forum
+                                        for
+                                        Technical Students Nepal, December 1997.
+                                        IUSY Ra Nepal (in Nepali), Sagar NSU Lalitpur annual bulletin,
+                                        October 1996.
+                                        The Road Towards Democracy, Nava Yug, April 1991.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingEight">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseEight"
+                                            aria-expanded="false" aria-controls="collapseEight">
+                                        Skills
+                                    </button>
+                                </h2>
+                                <div id="collapseEight" class="accordion-collapse collapse"
+                                     aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Proficiency in Computers; Windows, Internet and e-mail. Fluent
+                                        in
+                                        English, Nepali and Hindi.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+{% endblock content %}

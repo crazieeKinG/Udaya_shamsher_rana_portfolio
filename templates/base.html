@@ -1,0 +1,298 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Udaya Rana Magar</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <!-- Font Awesome -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+    {#    <!-- MDB -->#}
+    {#    <link#}
+    {#            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"#}
+    {#            rel="stylesheet"#}
+    {#    />#}
+    {#    eko light box #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Vendor CSS Files -->
+    {#    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">#}
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    {#bootstrap 4 cdn#}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {#jquery cdn#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        {#      <h1 class="logo"><a href="index.html">DevFolio</a></h1>#}
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="{% url 'home' %}" class="logo"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="/udayarana/#hero">Home</a></li>
+                <li><a class="nav-link scrollto" href="/udayarana/#about">Biography</a></li>
+                <li><a class="nav-link scrollto" href="/udayarana/#services">Video Gallery</a></li>
+                <li><a class="nav-link scrollto " href="/udayarana/#work">Photo Gallery</a></li>
+                <li><a class="nav-link scrollto " href="/udayarana/#blog">My Articles</a></li>
+                <li class="dropdown"><a href="#"><span>Contact</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="#">Drop Down 1</a></li>
+                        <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="#">Deep Drop Down 1</a></li>
+                                <li><a href="#">Deep Drop Down 2</a></li>
+                                <li><a href="#">Deep Drop Down 3</a></li>
+                                <li><a href="#">Deep Drop Down 4</a></li>
+                                <li><a href="#">Deep Drop Down 5</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Drop Down 2</a></li>
+                        <li><a href="#">Drop Down 3</a></li>
+                        <li><a href="#">Drop Down 4</a></li>
+                    </ul>
+                </li>
+                <li>
+
+                    <a href="#" onclick="doGTranslate('ru|en');return false;" title="English" class="gflag nturl"
+                       style="background-position:-0px -0px;"><img src="{% static 'assets/img/usa.jpg' %}" height="16"
+                                                                   width="16"
+                                                                   alt="English"/></a></li>
+                <li><a href="#" onclick="doGTranslate('ru|ne');return false;" title="Nepali" class="gflag nturl"
+                       style="background-position:-0px -400px;"><img src="{% static 'assets/img/nepal.png' %}"
+                                                                     height="16"
+                                                                     width="16"
+                                                                     alt="Nepal"/></a></li>
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+
+
+{% block content %}{% endblock %}
+
+{#Google translate#}
+﻿<!-- Modified by Novikov.ua -->
+<style type="text/css">
+    a.gflag {
+        vertical-align: middle;
+        font-size: 15px;
+        padding: 0px;
+        background-repeat: no-repeat;
+    {#background-image: url(//gtranslate.net/flags/16.png);#}
+    }
+
+    a.gflag img {
+        border: 0;
+    }
+
+    a.gflag:hover {
+    {#background-image: url(//gtranslate.net/flags/16a.png);#}
+    }
+
+    #goog-gt-tt {
+        display: none !important;
+    }
+
+    .goog-te-banner-frame {
+        display: none !important;
+    }
+
+    .goog-te-menu-value:hover {
+        text-decoration: none !important;
+    }
+
+    body {
+        top: 0 !important;
+    }
+
+    #google_translate_element2 {
+        display: none !important;
+    }
+</style>
+
+
+<div id="google_translate_element2"></div>
+
+<script type="text/javascript">
+    function googleTranslateElementInit2() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ru',
+            autoDisplay: false
+        }, 'google_translate_element2');
+    }
+</script>
+<script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+<script type="text/javascript">
+    /* <![CDATA[ */
+    eval(function (p, a, c, k, e, r) {
+        e = function (c) {
+            return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
+        };
+        if (!''.replace(/^/, String)) {
+            while (c--) r[e(c)] = k[c] || e(c);
+            k = [function (e) {
+                return r[e]
+            }];
+            e = function () {
+                return '\\w+'
+            };
+            c = 1
+        }
+        while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+        return p
+    }('6 7(a,b){n{4(2.9){3 c=2.9("o");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s(\'t\'+b,c)}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\'\')v;3 b=a.w(\'|\')[1];3 c;3 d=2.x(\'y\');z(3 i=0;i<d.5;i++)4(d[i].A==\'B-C-D\')c=d[i];4(2.j(\'k\')==E||2.j(\'k\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\'m\');7(c,\'m\')}}', 43, 43, '||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById|google_translate_element2|innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'), 0, {}))
+    /* ]]> */
+</script>
+{#            Goole translation ends#}
+<!-- ======= Footer ======= -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="copyright-box">
+                    <p class="copyright">&copy; <strong>Udaya Shumsher J.B. Rana 2021</strong></p>
+                    {#Kupandole Hts., Lalitpur Ward – I, Kathmandu, Nepal. All Rights Reserved</p>#}
+                    <div><p>Kupandole Hts., Lalitpur Ward – I, Kathmandu, Nepal. All Rights Reserved</p></div>
+                    <div class="credits">
+                        <!--
+                        All the links in the footer should remain intact.
+                        You can delete the links only if you purchased the pro version.
+                        Licensing information: https://bootstrapmade.com/license/
+                        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
+                      -->
+                        Powered by <a href="https://bootstrapmade.com/">&copy;pinakintechnology </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- End  Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/typed.js/typed.min.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script type="text/javascript">
+    // VARIABLES
+    const rangeInput = document.querySelector('input[type = "range"]');
+    const imageList = document.querySelector(".image-list");
+    const searchInput = document.querySelector('input[type="search"]');
+    const btns = document.querySelectorAll(".view-options button");
+    const photosCounter = document.querySelector(".toolbar .counter span");
+    const imageListItems = document.querySelectorAll(".image-list li");
+    const captions = document.querySelectorAll(".image-list figcaption p:first-child");
+    const myArray = [];
+    let counter = 1;
+    const active = "active";
+    const listView = "list-view";
+    const gridView = "grid-view";
+    const dNone = "d-none";
+
+    // SET VIEW
+    for (const btn of btns) {
+        btn.addEventListener("click", function () {
+            const parent = this.parentElement;
+            document.querySelector(".view-options .active").classList.remove(active);
+            parent.classList.add(active);
+            this.disabled = true;
+            document.querySelector('.view-options [class^="show-"]:not(.active) button').disabled = false;
+
+            if (parent.classList.contains("show-list")) {
+                parent.previousElementSibling.previousElementSibling.classList.add(dNone);
+                imageList.classList.remove(gridView);
+                imageList.classList.add(listView);
+            } else {
+                parent.previousElementSibling.classList.remove(dNone);
+                imageList.classList.remove(listView);
+                imageList.classList.add(gridView);
+            }
+        });
+    }
+
+    // SET THUMBNAIL VIEW - CHANGE CSS VARIABLE
+    rangeInput.addEventListener("input", function () {
+        document.documentElement.style.setProperty("--minRangeValue", `${this.value}px`);
+    });
+
+    // SEARCH FUNCTIONALITY
+    for (const caption of captions) {
+        myArray.push({
+            id: counter++,
+            text: caption.textContent
+        });
+    }
+
+    searchInput.addEventListener("keyup", keyupHandler);
+
+    function keyupHandler() {
+        for (const item of imageListItems) {
+            item.classList.add(dNone);
+        }
+        const text = this.value;
+        const filteredArray = myArray.filter(el => el.text.includes(text));
+        if (filteredArray.length > 0) {
+            for (const el of filteredArray) {
+                document.querySelector(`.image-list li:nth-child(${el.id})`).classList.remove(dNone);
+            }
+        }
+        photosCounter.textContent = filteredArray.length;
+    }
+</script>
+</body>
+
+</html>
