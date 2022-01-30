@@ -2,827 +2,422 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
-    <!-- Template Main CSS File -->
-    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+<!-- Template Main CSS File -->
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
 
-    <div id="hero" class="hero route bg-image" style="background-image: url({% static 'assets/img/background1.jpg' %})">
-        <div class="overlay-itro"></div>
-        <div class="hero-content display-table">
-            <div class="table-cell">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
+<div id="home" class="hero route bg-image" style="background-image: url('{{ background.background.url }}');">
+    <div class="overlay-itro"></div>
+    <div class="hero-content display-table">
+        <div class="table-cell">
+            <div class="container">
+                <div class="col-sm-12 col-md-6 offset-md-6">
+                    <h6 class="hero-title mb-1 text-uppercase" style="font-size: 3rem"> {{ bio_data.name }} </h6>
+                    {% if bio_data.titles|length > 0 %}
+                    <p class="hero-subtitle" style="font-size: 2rem"><span class="typed notranslate" data-typed-items="
+                            {% for title in bio_data.titles %}
+                            {% if forloop.last %}
+                            {{ title.role }}
+                            {% else %}
+                            {{ title.role }},
+                            {% endif %}
+                            {% endfor %}
+                            "></span>
+                    </p>
+                    {% endif %}
+                    <div class="socials">
+                        <!-- Facebook -->
+                        <a class="btn btn-primary" style="background-color: #3b5998; " href="#!" role="button"><i
+                                class="fab fa-facebook-f"></i></a>
 
-                        </div>
-                        <div class="col-6">
-                            <h6 class="hero-title mb-1"
-                                style="font-size: 3rem"> Udaya Shamsher Rana </h6>
+                        <!-- Twitter -->
+                        <a class="btn btn-primary" style="background-color: #55acee;" href="#!" role="button"><i
+                                class="fab fa-twitter"></i></a>
 
-                            <p class="hero-subtitle" style="font-size: 2rem"><span class="typed notranslate"
-                                                                                   data-typed-items="Member of Nepali Congress,Former Minister of State for Finance,Former President of Nepal Tarun Dal"></span>
-                            </p>
-                            <div class="socials">
-                                <!-- Facebook -->
-                                <a class="btn btn-primary btn-floating" style="background-color: #3b5998; " href="#!"
-                                   role="button"
-                                ><i class="fab fa-facebook-f"></i
-                                ></a>
+                        <!-- Google -->
+                        <a class="btn btn-primary" style="background-color: #dd4b39;" href="#!" role="button"><i
+                                class="fab fa-google"></i></a>
 
-                                <!-- Twitter -->
-                                <a class="btn btn-primary btn-floating" style="background-color: #55acee;" href="#!"
-                                   role="button"
-                                ><i class="fab fa-twitter"></i
-                                ></a>
+                        <!-- Instagram -->
+                        <a class="btn btn-primary" style="background-color: #ac2bac;" href="#!" role="button"><i
+                                class="fab fa-instagram"></i></a>
 
-                                <!-- Google -->
-                                <a class="btn btn-primary btn-floating" style="background-color: #dd4b39;" href="#!"
-                                   role="button"
-                                ><i class="fab fa-google"></i
-                                ></a>
-
-                                <!-- Instagram -->
-                                <a class="btn btn-primary btn-floating" style="background-color: #ac2bac;" href="#!"
-                                   role="button"
-                                ><i class="fab fa-instagram"></i
-                                ></a>
-
-                                <!-- Linkedin -->
-                                <a class="btn btn-primary btn-floating" style="background-color: #0082ca;" href="#!"
-                                   role="button"
-                                ><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
+                        <!-- Linkedin -->
+                        <a class="btn btn-primary" style="background-color: #0082ca;" href="#!" role="button"><i
+                                class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
                 </div>
             </div>
         </div>
-    </div>"<!-- End Hero Section -->
+    </div>
+</div>
+<!-- End Hero Section -->
 
-    <main id="main">
-
-        <!-- ======= About Section ======= -->
-        <section id="about" class="about-mf sect-pt4 route">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8"><p class="fs-5 text-center">Udaya Shumsher J.B. Rana is a Member of the
-                        Parliament who was elected from Lalitpur constituency # 1. He is a prominent and promising youth
-                        leader of the Nepali Congress party and also is the President of Nepal Tarun Dal which is the
-                        youth organization of the Nepali Congress Party.
-                        <h4 style="text-align: center">Udaya Shumsher Rana</h4>
-                        <h4 style="text-align: center;">Former President, Nepal Tarun Dal </h4>
-                        <div style="height: 10px"></div>
-                        <h6 style="text-align: center"><u><a href="{% url 'biography' %}" style="color: #0078ff">MORE
-                            ABOUT UDAYA</a></u>
-                        </h6>
-                    </div>
-                    <div class="col-md-2"></div>
-                    <div style="height: 40px"></div>
-                </div>
+<main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="biography" class="about-mf sect-pt4 route">
+        {% if bio.records == 0 %}
+            <div class="col-12 text-center">
+                <h4 class="text-muted">No records found</h4>
             </div>
-            </div>
-            </div>
-        </section><!-- End About Section -->
-
-        <!-- ======= Services Section ======= -->
-        <section id="services" class="services-mf pt-5 route" style="background-color: #f5f5f5;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="title-box text-center">
-                            <h3 class="title-a">
-                                Video Gallery
-                            </h3>
-                            <p class="subtitle-a">
-                                {#                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.#}
-                            </p>
-                            <div class="line-mf"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="service-box">
-                            <div class="service-ico">
-                                {#                            <span class="ico-circle"><i class="bi bi-briefcase"></i></span>#}
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item"
-                                            src="https://www.youtube.com/embed/roTlH0uu2og"
-                                            allowfullscreen></iframe>
-                                </div>
-
-                                {#<div class="embed-responsive embed-responsive-16by9">#}
-                                {#  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/137857207" allowfullscreen></iframe>#}
-                                {#</div>#}
-
-                            </div>
-                            <div class="service-content">
-                                <h2 class="s-title">Fireside: Bhusan Dahal with Udaya Shumsher Rana</h2>
-                                <p class="s-description text-center">
-                                    {#                               Fireside: Bhusan Dahal with Udaya Shumsher Rana#}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="service-box">
-                            <div class="service-ico">
-                                {#                            <span class="ico-circle"><i class="bi bi-card-checklist"></i></span>#}
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item"
-                                            src="https://www.youtube.com/embed/FL8Luv5kMUI"
-                                            allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="service-content">
-                                <h2 class="s-title">Mother of Congress Youth Leader Udaya Shumsher Rana</h2>
-                                <p class="s-description text-center">
-                                    {#                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem#}
-                                    {#                                fugiat! Quia,#}
-                                    {#                                provident vitae! Magni#}
-                                    {#                                tempora perferendis eum non provident.#}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="service-box">
-                            <div class="service-ico">
-                                {#                            <span class="ico-circle"><i class="bi bi-bar-chart"></i></span>#}
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item"
-                                            src="https://www.youtube.com/embed/PhqgAZM8Pds"
-                                            allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="service-content">
-                                <h2 class="s-title">Samaya Sandarva with Udaya Shamsher Rana</h2>
-                                <p class="s-description text-center">
-                                    {#                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem#}
-                                    {#                                fugiat! Quia,#}
-                                    {#                                provident vitae! Magni#}
-                                    {#                                tempora perferendis eum non provident.#}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="service-box">
-                            <div class="service-ico">
-                                {#                            <span class="ico-circle"><i class="bi bi-binoculars"></i></span>#}
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item"
-                                            src="https://www.youtube.com/embed/VL6e0h3qyaE"
-                                            allowfullscreen></iframe>
-                                </div>
-                            </div>
-
-                            <div class="service-content">
-                                <h2 class="s-title">Interview with Udaya Shamsher Rana</h2>
-                                <p class="s-description text-center">
-                                    {#                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem#}
-                                    {#                                fugiat! Quia,#}
-                                    {#                                provident vitae! Magni#}
-                                    {#                                tempora perferendis eum non provident.#}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="service-box">
-                            <div class="service-ico">
-                                {#                            <span class="ico-circle"><i class="bi bi-brightness-high"></i></span>#}
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item"
-                                            src="https://www.youtube.com/embed/QpP9hdrB3J0"
-                                            allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="service-content">
-                                <h2 class="s-title">Manu's Coffee Guf with Udaya Shumsher Rana</h2>
-                                <p class="s-description text-center">
-                                    {#                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem#}
-                                    {#                                fugiat! Quia,#}
-                                    {#                                provident vitae! Magni#}
-                                    {#                                tempora perferendis eum non provident.#}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="service-box">
-                            <div class="service-ico">
-                                {#                            <span class="ico-circle"><i class="bi bi-calendar4-week"></i></span>#}
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item"
-                                            src="https://www.youtube.com/embed/NMsgOiiNZDw"
-                                            allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="service-content">
-                                <h2 class="s-title">TOUGH talk with Dil Bhusan</h2>
-                                <p class="s-description text-center">
-                                    {#                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem#}
-                                    {#                                fugiat! Quia,#}
-                                    {#                                provident vitae! Magni#}
-                                    {#                                tempora perferendis eum non provident.#}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4" style="text-align: center">
-                        <!-- Buttons trigger collapse -->
-
-                        <a href="{% url 'video_gallery' %}">
-                            <button type="button" class="btn btn-primary btn-sm">More Videos</button>
-                        </a>
-                    </div>
-                    <div class="col-md-4"></div>
-                </div>
-                <div style="height: 60px"></div>
-            </div>
-        </section><!-- End Services Section -->
-
-        <!-- ======= Counter Section ======= -->
-        <div class="section-counter paralax-mf bg-image"
-             style="background-image: url({% static 'assets/img/nepali_congress.jpg' %})">
-            <div class="overlay-mf"></div>
-            <div class="container position-relative">
-                <div class="row">
-                    <div class="col-sm-3 col-lg-3">
-                        <div class="counter-box counter-box pt-4 pt-md-0">
-                            <div class="counter-ico">
-                            <span class="ico-circle">
-                                <img src="{% static 'assets/img/contribute.png' %}"/>
-{#                                <i class="bi bi-check"></i>#}
-                            </span>
-                            </div>
-                            <div class="counter-num">
-                                <p data-purecounter-start="0" data-purecounter-end="450" data-purecounter-duration="1"
-                                   class="counter purecounter"></p>
-                                <span class="counter-text">Contribute</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-lg-3">
-                        <div class="counter-box pt-4 pt-md-0">
-                            <div class="counter-ico">
-                                <span class="ico-circle"><i class="fas fa-check-square"></i></span>
-                            </div>
-                            <div class="counter-num">
-                                <p data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1"
-                                   class="counter purecounter"></p>
-                                <span class="counter-text">Volunter</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-lg-3">
-                        <div class="counter-box pt-4 pt-md-0">
-                            <div class="counter-ico">
-                                <span class="ico-circle"><i class="fas fa-envelope-open-text"></i></span>
-                            </div>
-                            <div class="counter-num">
-                                <p data-purecounter-start="0" data-purecounter-end="550" data-purecounter-duration="1"
-                                   class="counter purecounter"></p>
-                                <span class="counter-text">Causes</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-lg-3">
-                        <div class="counter-box pt-4 pt-md-0">
-                            <div class="counter-ico">
-                                <span class="ico-circle"><i class="far fa-newspaper"></i></span>
-                            </div>
-                            <div class="counter-num">
-                                <p data-purecounter-start="0" data-purecounter-end="48" data-purecounter-duration="1"
-                                   class="counter purecounter"></p>
-                                <span class="counter-text">Events</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- End Counter Section -->
-
-        <!-- ======= Portfolio Section ======= -->
-        <section id="work" class="portfolio-mf sect-pt4 route">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="title-box text-center">
-                            <h3 class="title-a">
-                                Photo Gallery
-                            </h3>
-                            <p class="subtitle-a">
-                                {#                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.#}
-                            </p>
-                            <div class="line-mf"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div id="wrap" class="container">
-                            <section class="gallery">
-                                <div class="container">
-                                    <div class="toolbar">
-                                        <div class="search-wrapper">
-{#                                            <input type="search" placeholder="Search for photos">#}
-{#                                            <div class="counter">#}
-{#                                                Total photos: <span>12</span></div>#}
-                                        </div>
-                                        <ul class="view-options">
-                                            <li class="zoom">
-                                                <input type="range" min="180" max="380" value="280">
-                                            </li>
-                                            <li class="show-grid active">
-                                                <button disabled>
-                                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/grid-view.svg"
-                                                         alt="grid view">
-                                                </button>
-                                            </li>
-                                            <li class="show-list">
-                                                <button>
-                                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/list-view.svg"
-                                                         alt="list view">
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <ol class="image-list grid-view">
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/gyanpatra_to_primeminister.jpg' %}"
-                                                    style="width: 100% ;height:100%" alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">Gyan Patra to Prime Minister</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@redcharlie"#}
-{#                                                                   target="_blank">redcharlie</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/us_visit.jpg' %}"
-                                                    style="width: 100%; height:100%" alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">Us Visit</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@wilstewart3"#}
-{#                                                                   target="_blank">Wil Stewart</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/uk_visit.jpg' %}"
-                                                    style="width: 100%; height:100%" alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">UK Visit</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@ignitedit"#}
-{#                                                                   target="_blank">Mark Basarab</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/general_election.jpg' %}"
-                                                    style="width: 100%; height:100%" alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">General Election</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@phiestyphung"#}
-{#                                                                   target="_blank">Amanda Phung</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/general.jpg' %}"
-                                                    style="width: 100%" alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">General</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@elke_karin"#}
-{#                                                                   target="_blank">Elke Karin Lugert</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/nepal_tarun_dal.jpg' %}"
-                                                     style="width: 100%" alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">Nepal Tarun Dal</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@s_sagano"#}
-{#                                                                   target="_blank">Sora Sagano</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/china_visit.jpg' %}"
-                                                    style="width: 100%" alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">China Visit</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@darrylbrian"#}
-{#                                                                   target="_blank">Darryl Brian</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/earthquake.jpg' %}"
-                                                    style="width: 100%" alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">Earthquake 2015</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@metatzon297"#}
-{#                                                                   target="_blank">Shin Roran</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/samsad.jpg' %}"
-                                                  style="width: 100%; height:100%"   alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">Samsad Bhawan</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@timmossholder"#}
-{#                                                                   target="_blank">Tim Mossholder</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/pm_meeting.jpg' %}"
-                                                   style="width: 100%"  alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">Meetings with Prime Minister</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@stlobe" target="_blank">Steven#}
-{#                                                        Wong</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-                                        <li>
-                                            <figure>
-                                                <img src="{% static 'assets/img/interview.jpg' %}"
-                                                  style="width: 100%"   alt="">
-                                                <figcaption>
-                                                    <p style="text-align: center">Interview</p>
-{#                                                    <p>Photo by <a href="https://unsplash.com/@von_co" target="_blank">Ivana#}
-{#                                                        Cajina</a></p>#}
-                                                </figcaption>
-                                            </figure>
-                                        </li>
-{#                                        <li>#}
-{#                                            <figure>#}
-{#                                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/unsplash_nature12.jpg"#}
-{#                                                    style="width: 100%; height:100%" alt="">#}
-{#                                                <figcaption>#}
-{#                                                    <p>bird's-eye view of mountain rang</p>#}
-{#                                                    <p>Photo by <a href="https://unsplash.com/@leni_eleni"#}
-{#                                                                   target="_blank">Elena Prokofyeva</a></p>#}
-{#                                                </figcaption>#}
-{#                                            </figure>#}
-{#                                        </li>#}
-                                    </ol>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                <div style="height:60px"></div>
-                <div class="row">
-                    <div class="col-md-4"></div>
-
-                    <div class="col-md-4" style="text-align: center">
-                        <!-- Buttons trigger collapse -->
-
-                        <a href="{% url 'photo_gallery' %}">
-                            <button type="button" class="btn btn-primary btn-sm">More Photos</button>
-                        </a>
-
-                        <!-- Collapsed content -->
-
-                    </div>
-                    <div class="col-md-4"></div>
-                </div>
-                <div style="height:60px"></div>
-            </div>
-
-
-        </section><!-- End Portfolio Section -->
-
-        <!-- ======= Testimonials Section ======= -->
-        <div class="testimonials paralax-mf bg-image"
-             style="background-image: url({% static 'assets/img/slider1.jpg' %})">
-            <div class="overlay-mf"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                            <div class="swiper-wrapper">
-
-                                <div class="swiper-slide">
-                                    <div class="testimonial-box">
-                                        <div class="author-test">
-                                            <img src="{% static 'assets/img/carousel1.jpg' %}" alt=""
-                                                 class="rounded-circle b-shadow-a">
-                                            {#                                        <span class="author">Udaya Shamsher Rana</span>#}
-                                        </div>
-                                        <div class="content-test">
-                                            <p class="description lead">
-                                                Member of Nepali Congress
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div><!-- End testimonial item -->
-
-                                <div class="swiper-slide">
-                                    <div class="testimonial-box">
-                                        <div class="author-test">
-                                            <img src="{% static 'assets/img/carousel2.jpg' %}" alt=""
-                                                 class="rounded-circle b-shadow-a">
-                                            {#                                        <span class="author">Marta Socrate</span>#}
-                                        </div>
-                                        <div class="content-test">
-                                            <p class="description lead">
-                                                Former Minister of State for Finance & Former President of Nepal Tarun
-                                                Dal
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div><!-- End testimonial item -->
-                            </div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-
-                        <!-- <div id="testimonial-mf" class="owl-carousel owl-theme">
-
-                    </div> -->
-                    </div>
-                </div>
-            </div>
-        </div><!-- End Testimonials Section -->
-
-        <!-- ======= Blog Section ======= -->
-        <section id="blog" class="blog-mf sect-pt4 route" style="background-color:#f5f5f5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="title-box text-center">
-                            <h3 class="title-a">
-                                Article
-                            </h3>
-                            <p class="subtitle-a">
-                            </p>
-                            <div class="line-mf"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md-4">
-                        <div class="work-box box-shadow-full">
-                            <a href="{% static 'assets/img/1.jpg' %}" data-gallery="portfolioGallery"
-                               class="portfolio-lightbox" style="border-radius: 5px">
-                                <div class="work-img" style="border-radius: 5px;">
-                                    <img src="{% static 'assets/img/new_beginning.jpg' %}" alt="" class="img-fluid"
-                                         style="border-radius: 10px 10px 10px 10px">
-                                </div>
-                            </a>
-                            <div class="work-content">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h6><strong>विकास बजेटमा प्राथमिकता</strong></h6>
-
-                                        <div class="w-more text-truncate" >
-                                            <p>वैशाख २८, २०७३- संविधानमा जेठ १५ गते संसदमा बजेट प्रस्तुत गर्ने व्यवस्था भएपछि यसपटक विगतजस्तो बजेट कहिले आउला भन्ने चिन्ता र चासो छैन ।…</p>
-                                        </div>
-                                        <div>
-
-                                            <button type="button" class="btn btn-primary btn-sm">Continue Reading</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="work-box box-shadow-full">
-                            <a href="{% static 'assets/img/new_beginning.jpg' %}" data-gallery="portfolioGallery"
-                               class="portfolio-lightbox">
-                                <div class="work-img text-truncate" style="border-radius: 5px;">
-                                    <img src="{% static 'assets/img/new_beginning.jpg' %}" alt="" class="img-fluid"
-                                         style="border-radius: 10px 10px 10px 10px">
-                                </div>
-                            </a>
-                            <div class="work-content">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h6><strong>ओझेलमा आर्थिक बहस</strong></h6>
-                                        {#                                        <h2 class="w-title">General</h2>#}
-                                        <div class="w-more text-truncate">
-                                            <p>बैसाख १२, १३ र २९ गतेको विनाशकारी भूकम्पले क्षतिग्रस्त बनेको हाम्रो आर्थिक क्षेत्र यतिबेला टाट पल्टिने अवस्थामा छ । संविधानप्रति असन्तुष्टि जनाउँदै तराई/मधेस केन्द्रित दलहरूले ४ महिनादेखि सीमानाकामा गरेको अवरोध र ढुवानीमा देखिएको समस्याले मुलुक</p>
-                                        </div>
-                                        <div>
-
-                                            <button type="button" class="btn btn-primary btn-sm">Continue Reading</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="work-box box-shadow-full">
-                            <a href="{% static 'assets/img/new_beginning.jpg' %}" data-gallery="portfolioGallery"
-                               class="portfolio-lightbox">
-                                <div class="work-img" style="border-radius: 5px;">
-                                    <img src="{% static 'assets/img/new_beginning.jpg' %}" alt="" class="img-fluid"
-                                         style="border-radius: 10px 10px 10px 10px">
-                                </div>
-                            </a>
-                            <div class="work-content">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h6><strong>Fighting For What You Believe In Most</strong></h6>
-                                        {#                                        <h2 class="w-title">General</h2>#}
-                                        <div class="w-more text-truncate">
-                                            <p>Udaya received B.A. honours (History) degree from St. Stephen’s College, Delhi University and completed his Masters degree from Cornell University, New York. He completed his high school; (class X) from St. Joseph’s College (North Point) Darjeeling (India) and went on to completed his higher secondary (class XII) from Lawrence School, Sanawar (India).</p>
-                                        </div>
-                                        <div>
-
-                                            <button type="button" class="btn btn-primary btn-sm"> Continue Reading</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4" style="text-align: center">
-                        <!-- Buttons trigger collapse -->
-
-                        <a href="{% url 'article' %}">
-                            <button type="button" class="btn btn-primary btn-sm">More Articles</button>
-                        </a>
-
-                        <!-- Collapsed content -->
-
-                    </div>
-                    <div class="col-md-4"></div>
-                    <div style="height: 80px"></div>
-                </div>
-            </div>
-        </section><!-- End Blog Section -->
-
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="paralax-mf footer-paralax bg-image  route"
-                 style="background-image: url({% static 'assets/img/slider2.png' %});">
-            <div class="overlay-mf"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="contact-mf">
-                            <div id="contact" class="box-shadow-full">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="title-box-2">
-                                            <h5 class="title-left">
-                                                Contact Udaya Rana
-                                            </h5>
-                                        </div>
-                                        <div>
-                                            <form action="forms/contact.php" method="post" role="form"
-                                                  class="php-email-form">
-                                                <div class="row">
-                                                    <div class="col-md-12 mb-3">
-                                                        <div class="form-group">
-                                                            <input type="text" name="name" class="form-control"
-                                                                   id="name"
-                                                                   placeholder="Your Name" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 mb-3">
-                                                        <div class="form-group">
-                                                            <input type="email" class="form-control" name="email"
-                                                                   id="email"
-                                                                   placeholder="Your Email" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 mb-3">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" name="subject"
-                                                                   id="subject" placeholder="Mobile Number" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                        <textarea class="form-control" name="message" rows="5"
-                                                                  placeholder="Message" required></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 text-center my-3">
-                                                        <div class="loading">Loading</div>
-                                                        <div class="error-message"></div>
-                                                        <div class="sent-message">Your message has been sent. Thank you!
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 text-center">
-                                                        <button type="submit"
-                                                                class="button button-a button-big button-rouded">Send
-                                                            Message
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="title-box-2 pt-4 pt-md-0">
-                                            <h5 class="title-left">
-                                                Get in Touch
-                                            </h5>
-                                        </div>
-                                        <div class="more-info">
-                                            <p class="lead">
-                                                Contact me today and find out what you can do to help us make a better
-                                                tomorrow. We are eager to hear from you.
-                                            </p>
-                                            {#                                        <ul class="list-ico">#}
-                                            {#                                            <li><span class="bi bi-geo-alt"></span> 329 WASHINGTON ST BOSTON, MA 02108#}
-                                            {#                                            </li>#}
-                                            {#                                            <li><span class="bi bi-phone"></span> (617) 557-0089</li>#}
-                                            {#                                            <li><span class="bi bi-envelope"></span> contact@example.com</li>#}
-                                            {#                                        </ul>#}
-                                        </div>
-                                        <div class="socials">
-                                            <ul>
-                                                <li><a href=""><span class="ico-circle"><i
-                                                        class="bi bi-facebook"></i></span></a></li>
-                                                <li><a href=""><span class="ico-circle"><i
-                                                        class="bi bi-instagram"></i></span></a></li>
-                                                <li><a href=""><span class="ico-circle"><i
-                                                        class="bi bi-twitter"></i></span></a>
-                                                </li>
-                                                <li><a href=""><span class="ico-circle"><i
-                                                        class="bi bi-linkedin"></i></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="height: 100px"></div>
-        </section><!-- End Contact Section -->
-
-        {#        embed section#}
+        {% else %}
         <div class="container">
-            <div style="height: 100px"></div>
+            <h4 class="text-center text-uppercase">{{ bio_data.name }}</h4>
+            <h5 class="text-center border-bottom pb-3">
+                {% for title in bio_data.titles %}
+                {% if forloop.last %}
+                {{ title.role }}
+                {% endif %}
+                {% endfor %}
+            </h5>
+            <p class="fs-5 text-center">
+                {{ bio_data.description|truncatechars:535 }}
+            <div style="height:60px"></div>
+            <h6 style="text-align: center">
+                <u>
+                    <a href="{% url 'biography' %}" class="btn btn-primary my-3">
+                        MORE ABOUT {{ bio_data.name.split.0 }}
+                    </a>
+                </u>
+            </h6>
+        </div>
+        {% endif %}
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="section-videos" class="services-mf pt-5 route" style="background-color: #f5f5f5;">
+        <div class="col-10 offset-1">
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4 col-sm-12">
-                    {#    facebook embeded#}
-                    <div id="fb-root"></div>
-                    <script async defer crossorigin="anonymous"
-                            src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0&appId=1493338934289348&autoLogAppEvents=1"
-                            nonce="I5vbM6cx"></script>
-                    <div class="fb-page" data-href="https://www.facebook.com/UdayaShumsherRana/" data-tabs="timeline"
-                         data-width="350" data-height="500" data-small-header="false" data-adapt-container-width="true"
-                         data-hide-cover="false" data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/UdayaShumsherRana/" class="fb-xfbml-parse-ignore"><a
-                                href="https://www.facebook.com/UdayaShumsherRana/">Pustaka Nepal</a></blockquote>
+                <div class="col-sm-12">
+                    <div class="title-box text-center">
+                        <h3 class="title-a">
+                            Video Gallery
+                        </h3>
+                        <div class="line-mf"></div>
                     </div>
-                    {#facebook embed finished#}
-
-
                 </div>
-
-
-                <div class="col-md-4 col-sm-12">          {#Twitter embed#}
-                    <div>
-                        <a class="twitter-timeline" data-width="350" data-height="500" data-dnt="true"
-                           href="https://twitter.com/udayasjbrana?ref_src=twsrc%5Etfw">Tweets by udayasjbrana</a>
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            {% if videos|length == 0 %}
+            <div class="col-12 text-center">
+                <h4 class="text-muted">No records found</h4>
+            </div>
+            {% else %}
+            <div class="row">
+                {% for video in videos %}
+                <div class="card col-md-3 box-shadow-full mx-auto p-0 pb-3">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item rounded-top" src="{{ video.link }}"
+                            allowfullscreen></iframe>
                     </div>
-                    {#                    twitter closed#}</div>
+                    <div class="card-body">
+                        <h6 class="card-title">{{ video.title|truncatechars:30 }}</h6>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
-            <div class="col-md-2"></div>
-            <div>
+            <div style="height:60px"></div>
+            <div class="row">
+                <div class="col-md-12" style="text-align: center">
+                    <a href="{% url 'video_gallery' %}">
+                        <button type="button" class="btn btn-primary btn-sm">More Videos</button>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+            <div style="height: 60px"></div>
+        </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Counter Section ======= -->
+    <div class="section-counter paralax-mf bg-image"
+        style="background-image: url('{{ background.achievement.url }}')">
+        <div class="overlay-mf"></div>
+        <div class="container position-relative">
+            {% if achievements|length == 0 %}
+            <div class="col-12 text-center">
+                <h4 class="text-light">No records found</h4>
+            </div>
+            {% else %}
+            <div class="row">
+                {% for achievement in achievements %}
+                <div class="col-sm-3 px-3 mx-auto">
+                    <div class="counter-box counter-box">
+                        <div class="counter-ico">
+                            <span class="ico-circle overflow-hidden">
+                                <img class="rounded-circle" src="{{ achievement.image.url }}" />
+                            </span>
+                        </div>
+                        <div class="counter-num">
+                            <p data-purecounter-start="0" data-purecounter-end="{{ achievement.count }}" data-purecounter-duration="1"
+                                class="counter purecounter"></p>
+                            <span class="counter-text">{{ achievement.title }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div><!-- End Counter Section -->
+
+    <!-- ======= Photo Section ======= -->
+    <section id="section-photo" class="portfolio-mf sect-pt4 route">
+        <div class="col-10 offset-1">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="title-box text-center">
+                        <h3 class="title-a">
+                            Photo Gallery
+                        </h3>
+                        <div class="line-mf"></div>
+                    </div>
+                </div>
+            </div>
+            {% if albums|length == 0 %}
+            <div class="col-12 text-center">
+                <h4 class="text-muted">No records found</h4>
+            </div>
+            {% else %}
+            <div class="row">
+                {% for album in albums %}
+                <div class="card col-md-5 col-lg-3 box-shadow-full mx-auto p-0">
+                    <button class="col-12 border-0 rounded-top"
+                        style="background-image: url('{{ album.cover_image.url }}'); background-repeat: no-repeat; background-size: cover; height: 400px; background-position: center;"
+                        data-bs-toggle="modal" data-bs-target="#pictureModal{{album.id}}" data-toggle="modal"
+                        data-target="#pictureModal{{album.id}}"></button>
+                    <div class="card col-12 mt-auto p-0 border-0">
+                        <div class="card-body pb-3">
+                            <p class="card-text align-self-bottom">{{ album.name }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div style="height:60px"></div>
+            <div class="row">
+                <div class="col-md-12" style="text-align: center">
+                    <a href="{% url 'photo_gallery' %}">
+                        <button type="button" class="btn btn-primary btn-sm">More Photos</button>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+            <div style="height:60px"></div>
+        </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    
+    <div class="testimonials paralax-mf bg-image" style="background-image: url('{{ background.slider.url }}'); height: 500px;">
+        <div class="overlay-mf"></div>
+        <div class="container">
+            {% if slider|length == 0 %}
+            <div class="col-12 text-center" style="margin-top: 130px;">
+                <h4 class="text-light">No records found</h4>
+            </div>
+            {% else %}
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    {% for slide in slider %}
+                    {% if forloop.first %}
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    {% else %}
+                    <li data-target="#myCarousel" data-slide-to="{{ forloop.counter|add:'-1' }}"></li>
+                    {% endif %}
+                    {% endfor %}
+                </ol>
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
+                    {% for slide in slider %}
+                    {% if forloop.first %}
+                    <div class="carousel-item active">
+                    {% else %}
+                    <div class="carousel-item">
+                    {% endif %}
+                        <div class="img-box"><img src="{{ slide.image.url }}" alt=""></div>
+                        <div style="height:60px"></div>
+                        <h4 class="overview text-light" style="height: 80px; margin-bottom: 10px;">{{ slide.caption }}</h4>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div><!-- End Testimonials Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="section-news" class="blog-mf sect-pt4 route" style="background-color:#f5f5f5">
+        <div class="col-10 offset-1">
+            <div class="row">
+                <div class="col-sm-12 mx-auto">
+                    <div class="title-box text-center">
+                        <h3 class="title-a">
+                            Article
+                        </h3>
+                        <div class="line-mf"></div>
+                    </div>
+                </div>
+            </div>
+            {% if articles|length == 0 %}
+            <div class="col-12 text-center">
+                <h4 class="text-muted">No records found</h4>
+            </div>
+            {% else %}
+            <div class="row">
+                {% for article in articles %}
+                <div class="card col-md-5 col-lg-3 box-shadow-full mx-auto p-0">
+                    <div class="col-12 rounded-top"
+                        style="background-image: url('{{ article.image.url }}'); background-repeat: no-repeat; background-size: cover; height: 400px; background-position: center;">
+                    </div>
+                    <div class="card-body py-3">
+                        <h5 class="card-title">{{ article.title }}</h5>
+                        <p class="card-text">{{ article.body|truncatechars:30 }}</p>
+                    </div>
+                    <div class="card-footer text-center py-3">
+                        <a href="{% url 'article' %}#article{{article.id}}" class="btn btn-primary">Continue Reading</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div style="height:60px"></div>
+            <div class="row">
+                <div class="col-md-12" style="text-align: center">
+                    <a href="{% url 'article' %}">
+                        <button type="button" class="btn btn-primary btn-sm">More Articles</button>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+            <div style="height: 80px"></div>
+        </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contactus" class="paralax-mf footer-paralax bg-image  route"
+        style="background-image: url('{{ background.contact.url }}')">
+        <div id="contact" class="col-8 offset-2 box-shadow-full">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="title-box-2">
+                        <h5 class="title-left">
+                            Contact: {{ bio_data.name }}
+                        </h5>
+                    </div>
+                    <div>
+                        <form action="{% url 'contact_us' %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control" id="name"
+                                            placeholder="Your Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" id="email"
+                                            placeholder="Your Email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="contact_no" id="contact_no"
+                                            placeholder="Mobile Number" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="message" rows="5" placeholder="Message"
+                                            required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center mt-2">
+                                    <button type="submit" class="button button-a button-big button-rouded">Send
+                                        Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="title-box-2 pt-4 pt-md-0">
+                        <h5 class="title-left">
+                            Get in Touch
+                        </h5>
+                    </div>
+                    <div class="more-info">
+                        <p class="lead">
+                            Contact me today and find out what you can do to help us make a better
+                            tomorrow. We are eager to hear from you.
+                        </p>
+                    </div>
+                    <div class="socials">
+                        <!-- Facebook -->
+                        <a class="btn btn-primary" style="background-color: #3b5998; " href="#!" role="button"><i
+                                class="fab fa-facebook-f"></i></a>
+
+                        <!-- Twitter -->
+                        <a class="btn btn-primary" style="background-color: #55acee;" href="#!" role="button"><i
+                                class="fab fa-twitter"></i></a>
+
+                        <!-- Google -->
+                        <a class="btn btn-primary" style="background-color: #dd4b39;" href="#!" role="button"><i
+                                class="fab fa-google"></i></a>
+
+                        <!-- Instagram -->
+                        <a class="btn btn-primary" style="background-color: #ac2bac;" href="#!" role="button"><i
+                                class="fab fa-instagram"></i></a>
+
+                        <!-- Linkedin -->
+                        <a class="btn btn-primary" style="background-color: #0082ca;" href="#!" role="button"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 100px"></div>
+    </section><!-- End Contact Section -->
+
+    <!-- embed section -->
+    <div class="col-10 offset-1 my-4">
+        <div class="row">
+            <div class="col-sm-12 col-md-5 mx-auto text-center">
+                <!-- facebook embeded  -->
+                <script async defer crossorigin="anonymous"
+                    src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0&appId=1493338934289348&autoLogAppEvents=1"
+                    nonce="I5vbM6cx"></script>
+                <div class="fb-page" data-href="https://www.facebook.com/UdayaShumsherRana/" data-tabs="timeline"
+                    data-width="350" data-height="500" data-small-header="false" data-adapt-container-width="true"
+                    data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/UdayaShumsherRana/" class="fb-xfbml-parse-ignore"><a
+                            href="https://www.facebook.com/UdayaShumsherRana/">Pustaka Nepal</a></blockquote>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-5 mx-auto text-center">
+                <!-- Twitter embed -->
+                <a class="twitter-timeline" data-width="350" data-height="500" data-dnt="true"
+                    href="https://twitter.com/udayasjbrana?ref_src=twsrc%5Etfw">Tweets by udayasjbrana</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- End #main -->
+
+<!-- Modal -->
+{% for album in albums %}
+<div class="modal fade" id="pictureModal{{album.id}}" tabindex="-1" role="dialog" aria-labelledby="pictureModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg p-0" role="document">
+        <div class="modal-content">
+            <div class="container-fluid p-0">
+                <img class="col-12 rounded p-0" src="{{ album.cover_image.url }}" alt="..."
+                    style="object-fit: cover; min-height:50%; max-height: 80%; width: 100%;">
 
             </div>
-            {# embed section closed#}
-    </main>
-    <!-- End #main -->
-
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock content %}

@@ -1,272 +1,60 @@
-
-
-
 {% extends "base.html" %}
-{% load static %} <!-- Template Main CSS File -->
-
-
-
-
+{% load static %}
 
 {% block content %}
-    <link href="{% static 'assets/css/photogallery.css' %}" rel="stylesheet">
-    <div style="height: 100px;"></div>
-    <div class="container">
-        <div class="row" style="margin-top: 50px">
-
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <img
-                            src="{% static 'assets/img/article1.jpg' %}"
-                            class="card-img-top"
-                            alt="..."
-                            style="height: 225px"
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">विकास बजेटमा प्राथमिकता</h5>
-                        <p class="card-text text-center text-truncate">
-                            वैशाख २८, २०७३- संविधानमा जेठ १५ गते संसदमा बजेट प्रस्तुत गर्ने व्यवस्था भएपछि यसपटक
-                            विगतजस्तो बजेट कहिले आउला भन्ने चिन्ता र चासो छैन । बजेट अधिवेशन सुरु भइसकेको छ । त्यसैले
-                            यतिबेला सबैको ध्यान सरकारले कस्तो बजेट ल्याउँदैछ भन्नेमा बढी केन्द्रित देखिन्छ ।
-
-                            यसै सन्दर्भमा अर्थमन्त्रीले संसदमा विनियोजन विधेयक, २०७३ का सिद्धान्त र प्राथमिकता पनि
-                            प्रस्तुत गरिसक्नुभएको छ । भूकम्पपछिको पुनर्निर्माण र नाकाबन्दीले थिलथिलो भएको अर्थतन्त्रलाई
-                            चलायमान बनाउनु अहिलेको प्राथमिक विषय हो ।
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">May 10, 2016</small>
-                        <small class="text-muted" style="float: right">- उदयशमशेर राणा</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                 <div class="card h-100">
-                    <img
-                            src="{% static 'assets/img/article1.jpg' %}"
-                            class="card-img-top"
-                            alt="..."
-                            style="height: 225px"
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">विकास बजेटमा प्राथमिकता</h5>
-                        <p class="card-text text-center text-truncate">
-                            वैशाख २८, २०७३- संविधानमा जेठ १५ गते संसदमा बजेट प्रस्तुत गर्ने व्यवस्था भएपछि यसपटक
-                            विगतजस्तो बजेट कहिले आउला भन्ने चिन्ता र चासो छैन । बजेट अधिवेशन सुरु भइसकेको छ । त्यसैले
-                            यतिबेला सबैको ध्यान सरकारले कस्तो बजेट ल्याउँदैछ भन्नेमा बढी केन्द्रित देखिन्छ ।
-
-                            यसै सन्दर्भमा अर्थमन्त्रीले संसदमा विनियोजन विधेयक, २०७३ का सिद्धान्त र प्राथमिकता पनि
-                            प्रस्तुत गरिसक्नुभएको छ । भूकम्पपछिको पुनर्निर्माण र नाकाबन्दीले थिलथिलो भएको अर्थतन्त्रलाई
-                            चलायमान बनाउनु अहिलेको प्राथमिक विषय हो ।
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">May 10, 2016</small>
-                        <small class="text-muted" style="float: right">- उदयशमशेर राणा</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                 <div class="card h-100">
-                    <img
-                            src="{% static 'assets/img/article1.jpg' %}"
-                            class="card-img-top"
-                            alt="..."
-                            style="height: 225px"
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">विकास बजेटमा प्राथमिकता</h5>
-                        <p class="card-text text-center text-truncate">
-                            वैशाख २८, २०७३- संविधानमा जेठ १५ गते संसदमा बजेट प्रस्तुत गर्ने व्यवस्था भएपछि यसपटक
-                            विगतजस्तो बजेट कहिले आउला भन्ने चिन्ता र चासो छैन । बजेट अधिवेशन सुरु भइसकेको छ । त्यसैले
-                            यतिबेला सबैको ध्यान सरकारले कस्तो बजेट ल्याउँदैछ भन्नेमा बढी केन्द्रित देखिन्छ ।
-
-                            यसै सन्दर्भमा अर्थमन्त्रीले संसदमा विनियोजन विधेयक, २०७३ का सिद्धान्त र प्राथमिकता पनि
-                            प्रस्तुत गरिसक्नुभएको छ । भूकम्पपछिको पुनर्निर्माण र नाकाबन्दीले थिलथिलो भएको अर्थतन्त्रलाई
-                            चलायमान बनाउनु अहिलेको प्राथमिक विषय हो ।
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">May 10, 2016</small>
-                        <small class="text-muted" style="float: right">- उदयशमशेर राणा</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                  <div class="card h-100">
-                    <img
-                            src="{% static 'assets/img/article1.jpg' %}"
-                            class="card-img-top"
-                            alt="..."
-                            style="height: 225px"
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">विकास बजेटमा प्राथमिकता</h5>
-                        <p class="card-text text-center text-truncate">
-                            वैशाख २८, २०७३- संविधानमा जेठ १५ गते संसदमा बजेट प्रस्तुत गर्ने व्यवस्था भएपछि यसपटक
-                            विगतजस्तो बजेट कहिले आउला भन्ने चिन्ता र चासो छैन । बजेट अधिवेशन सुरु भइसकेको छ । त्यसैले
-                            यतिबेला सबैको ध्यान सरकारले कस्तो बजेट ल्याउँदैछ भन्नेमा बढी केन्द्रित देखिन्छ ।
-
-                            यसै सन्दर्भमा अर्थमन्त्रीले संसदमा विनियोजन विधेयक, २०७३ का सिद्धान्त र प्राथमिकता पनि
-                            प्रस्तुत गरिसक्नुभएको छ । भूकम्पपछिको पुनर्निर्माण र नाकाबन्दीले थिलथिलो भएको अर्थतन्त्रलाई
-                            चलायमान बनाउनु अहिलेको प्राथमिक विषय हो ।
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">May 10, 2016</small>
-                        <small class="text-muted" style="float: right">- उदयशमशेर राणा</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin-top: 50px">
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <img
-                            src="{% static 'assets/img/general.jpg' %}"
-                            class="card-img-top"
-                            alt="..."
-                            style="height: 225px"
-                    />
-                     <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">विकास बजेटमा प्राथमिकता</h5>
-                        <p class="card-text text-center text-truncate">
-                            वैशाख २८, २०७३- संविधानमा जेठ १५ गते संसदमा बजेट प्रस्तुत गर्ने व्यवस्था भएपछि यसपटक
-                            विगतजस्तो बजेट कहिले आउला भन्ने चिन्ता र चासो छैन । बजेट अधिवेशन सुरु भइसकेको छ । त्यसैले
-                            यतिबेला सबैको ध्यान सरकारले कस्तो बजेट ल्याउँदैछ भन्नेमा बढी केन्द्रित देखिन्छ ।
-
-                            यसै सन्दर्भमा अर्थमन्त्रीले संसदमा विनियोजन विधेयक, २०७३ का सिद्धान्त र प्राथमिकता पनि
-                            प्रस्तुत गरिसक्नुभएको छ । भूकम्पपछिको पुनर्निर्माण र नाकाबन्दीले थिलथिलो भएको अर्थतन्त्रलाई
-                            चलायमान बनाउनु अहिलेको प्राथमिक विषय हो ।
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">May 10, 2016</small>
-                        <small class="text-muted" style="float: right">- उदयशमशेर राणा</small>
-                    </div>
-                </div>
-            </div>
-            {#            <div class="col-md-3">#}
-            {#                <div class="card h-100">#}
-            {#                    <img#}
-            {#                            src="{% static 'assets/img/nepal_tarun_dal.jpg' %}"#}
-            {#                            class="card-img-top"#}
-            {#                            alt="..."#}
-            {#                    />#}
-            {#                    <div class="card-body">#}
-            {#                        <h5 class="card-title" style="text-align: center">Nepal Tarun Dal</h5>#}
-            {#                        <p class="card-text">#}
-            {#                            This is a wider card with supporting text below as a natural lead-in to#}
-            {#                            additional content. This content is a little bit longer.#}
-            {#                        </p>#}
-            {#                    </div>#}
-            {#                    <div class="card-footer">#}
-            {#                        <small class="text-muted">Last updated 3 mins ago</small>#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#            </div>#}
-            {#            <div class="col-md-3">#}
-            {#                <div class="card h-100">#}
-            {#                    <img#}
-            {#                            src="{% static 'assets/img/china_visit.jpg' %}"#}
-            {#                            class="card-img-top"#}
-            {#                            alt="..."#}
-            {#                    />#}
-            {#                    <div class="card-body">#}
-            {#                        <h5 class="card-title" style="text-align: center">China Visit</h5>#}
-            {#                        <p class="card-text">#}
-            {#                            This is a wider card with supporting text below as a natural lead-in to#}
-            {#                            additional content. This content is a little bit longer.#}
-            {#                        </p>#}
-            {#                    </div>#}
-            {#                    <div class="card-footer">#}
-            {#                        <small class="text-muted">Last updated 3 mins ago</small>#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#            </div>#}
-            {#            <div class="col-md-3">#}
-            {#                <div class="card h-100">#}
-            {#                    <img#}
-            {#                            src="{% static 'assets/img/earthquake.jpg' %}"#}
-            {#                            class="card-img-top"#}
-            {#                            alt="..."#}
-            {#                    />#}
-            {#                    <div class="card-body">#}
-            {#                        <h5 class="card-title" style="text-align: center">Earthquake of 2015</h5>#}
-            {#                        <p class="card-text">#}
-            {#                            This is a wider card with supporting text below as a natural lead-in to#}
-            {#                            additional content. This content is a little bit longer.#}
-            {#                        </p>#}
-            {#                    </div>#}
-            {#                    <div class="card-footer">#}
-            {#                        <small class="text-muted">Last updated 3 mins ago</small>#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#            </div>#}
-            {#        </div>#}
-            {#        <div class="row" style="margin-top: 50px">#}
-            {#            <div class="col-md-3">#}
-            {#                <div class="card h-100">#}
-            {#                    <img#}
-            {#                            src="{% static 'assets/img/samsad.jpg' %}"#}
-            {#                            class="card-img-top"#}
-            {#                            alt="..."#}
-            {#                    />#}
-            {#                    <div class="card-body">#}
-            {#                        <h5 class="card-title" style="text-align: center">Samsad Bhawan</h5>#}
-            {#                        <p class="card-text">#}
-            {#                            This is a wider card with supporting text below as a natural lead-in to#}
-            {#                            additional content. This content is a little bit longer.#}
-            {#                        </p>#}
-            {#                    </div>#}
-            {#                    <div class="card-footer">#}
-            {#                        <small class="text-muted">Last updated 3 mins ago</small>#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#            </div>#}
-            {#            <div class="col-md-3">#}
-            {#                <div class="card h-100">#}
-            {#                    <img#}
-            {#                            src="{% static 'assets/img/pm_meeting.jpg' %}"#}
-            {#                            class="card-img-top"#}
-            {#                            alt="..."#}
-            {##}
-            {#                    />#}
-            {#                    <div class="card-body">#}
-            {#                        <h5 class="card-title" style="text-align: center">Meetings with Prime minister</h5>#}
-            {#                        <p class="card-text">#}
-            {#                            This is a wider card with supporting text below as a natural lead-in to#}
-            {#                            additional content. This content is a little bit longer.#}
-            {#                        </p>#}
-            {#                    </div>#}
-            {#                    <div class="card-footer">#}
-            {#                        <small class="text-muted">Last updated 3 mins ago</small>#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#            </div>#}
-            {#            <div class="col-md-3">#}
-            {#                <div class="card h-100">#}
-            {#                    <img#}
-            {#                            src="{% static 'assets/img/interview.jpg' %}"#}
-            {#                            class="card-img-top"#}
-            {#                            alt="..."#}
-            {#                    />#}
-            {#                    <div class="card-body">#}
-            {#                        <h5 class="card-title" style="text-align: center">Interviews</h5>#}
-            {#                        <p class="card-text">#}
-            {#                            This is a wider card with supporting text below as a natural lead-in to#}
-            {#                            additional content. This content is a little bit longer.#}
-            {#                        </p>#}
-            {#                    </div>#}
-            {#                    <div class="card-footer">#}
-            {#                        <small class="text-muted">Last updated 3 mins ago</small>#}
-            {#                    </div>#}
-            {#                </div>#}
-            {#            </div>#}
-
-        </div>
-        <div style="height: 100px;"></div>
+<link href="{% static 'assets/css/photogallery.css' %}" rel="stylesheet">
+<div style="height: 100px;"></div>
+<div class="col-10 mb-3 offset-1">
+    <h1 class="text-capitalize">Articles</h1>
+    <hr>
+    {% if articles|length == 0 %}
+    <div class="col-12 text-center">
+        <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
     </div>
-
-
+    {% else %}
+    {% for article in articles %}
+    <div class="row route" style="margin-top: 50px; margin-bottom: 50px;" id='article{{ article.id }}'>
+        <div class="col-sm-12 col-md-4">
+                <div class="card h-100">
+                    <img src="{{article.image.url}}" class="card-img-top" alt="..."
+                        style="height: 225px" />
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center">{{ article.title }}</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-8">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title py-2 border-bottom">{{ article.title }}</h5>
+                        <p class="card-text text-justify" id="article">
+                            {{ article.body }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{{ article.event_date }}</small>
+                        <small class="text-muted" style="float: right">- {{ article.user.username }}</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    <hr>
+    <nav aria-label="Page navigation my-4">
+          <ul class="pagination justify-content-center">
+               {% for i in pages %}
+               {% if i == current %}
+               <li class="page-item active">
+                    {% else %}
+               <li class="page-item">
+                    {% endif %}
+                    <a class="page-link" href="{% url 'article' %}?page={{i}}">{{ i }}</a>
+               </li>
+               {% endfor %}
+          </ul>
+    </nav>
+    {% endif %}
+</div>
 {% endblock content %}

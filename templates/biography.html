@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<!-- Template Main CSS File -->
+<link href="{% static 'assets/css/photogallery.css' %}" rel="stylesheet">
+
+<div style="height: 100px"></div>
+{% if length == 0 %}
+<div class="col-12 text-center">
+    <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
+</div>
+{% else %}
+<div class="col-sm-12 col-md-10 offset-md-1">
+    <div class="col-md-12 box-shadow-full rounded p-0">
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <div class="about-img">
+                    <img src="{{ bio_data.image.url }}"
+                        class="img-fluid rounded b-shadow-a" alt="">
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-7 mt-3">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-none">
+                        <strong>Name:</strong> <span>{{ bio_data.name }}</span>
+                    </li>
+                    <li class="list-group-item"><strong>Date of birth:</strong> <span>{{ bio_data.dob }}</span></li>
+                    <li class="list-group-item"><strong>Address:</strong> <span>{{ bio_data.address }}</span></li>
+                    <li class="list-group-item"><strong>Contact information:</strong>
+                        <span>
+                            {% if bio_data.telephone|length == 0 %}
+                            No records found
+                            {% else %}
+                            {% for tel in bio_data.telephone %}
+                            {% if forloop.last %}
+                            {{ tel.number }}
+                            {% else %}
+                            {{ tel.number }},
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                        </span>
+                    </li>
+                    <li class="list-group-item"><strong>Email information:</strong>
+                        <span>
+                            {% if bio_data.email|length == 0 %}
+                            No records found
+                            {% else %}
+                            {% for email in bio_data.email %}
+                            {% if forloop.last %}
+                            {{ email.email }}
+                            {% else %}
+                            {{ email.email }},
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Biography -->
+    <div class="col-12">
+        <div class="card box-shadow-full p-0 rounded">
+            <h4 class="card-title text-uppercase bg-dark text-light rounded-top p-2">Biography</h4>
+            <div class="card-body py-2">
+                <h6 class="card-text text-justify font-weight-normal font-italic px-3">
+                    {{ bio_data.description|linebreaksbr }}</h6>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education -->
+    <div class="col-12">
+        <div class="card box-shadow-full p-0 rounded">
+            <h4 class="card-title text-uppercase bg-dark text-light rounded-top p-2">Education</h4>
+            <div class="card-body py-0">
+                {% if education|length == 0 %}
+                <div class="col-12 text-center">
+                    <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
+                </div>
+                {% else %}
+                <ol class="px-3">
+                    {% for value in education %}
+                    <li class="text-justify">
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">
+                                <span class="font-weight-bold">{{ value.institute_name }}, </span>
+                                <span>{{ value.address }}</span>
+                            </li>
+                            <li class="list-group-item">{{ value.acadamic_level }}</li>
+                            {% if value.description != "" %}
+                            <li class="list-group-item">{{ value.description }}</li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Political Background -->
+    <div class="col-12">
+        <div class="card box-shadow-full p-0 rounded">
+            <h4 class="card-title text-uppercase bg-dark text-light rounded-top p-2">Political Background</h4>
+            <div class="card-body py-0">
+                {% if political_background|length == 0 %}
+                <div class="col-12 text-center">
+                    <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
+                </div>
+                {% else %}
+                <ol class="px-3">
+                    {% for value in political_background %}
+                    {% if forloop.first %}
+                    <li class="text-justify">
+                        {% else %}
+                    <li class="border-top text-justify">
+                        {% endif %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{{ value.description }}</li>
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Work Experience -->
+    <div class="col-12">
+        <div class="card box-shadow-full p-0 rounded">
+            <h4 class="card-title text-uppercase bg-dark text-light rounded-top p-2">Work Experience</h4>
+            <div class="card-body py-0">
+                {% if work_experience|length == 0 %}
+                <div class="col-12 text-center">
+                    <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
+                </div>
+                {% else %}
+                <ol class="px-3">
+                    {% for value in work_experience %}
+                    <li class="text-justify">
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">
+                                <span class="font-weight-bold">{{ value.institute_name }} </span>
+                            </li>
+
+                            <li class="list-group-item font-italic">{{ value.role|linebreaksbr }}</li>
+
+                            {% if value.description != "" %}
+                            <li class="list-group-item">{{ value.description }}</li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Activity -->
+    <div class="col-12">
+        <div class="card box-shadow-full p-0 rounded">
+            <h4 class="card-title text-uppercase bg-dark text-light rounded-top p-2">Activity</h4>
+            <div class="card-body py-0">
+                {% if activity|length == 0 %}
+                <div class="col-12 text-center">
+                    <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
+                </div>
+                {% else %}
+                <ol class="px-3">
+                    {% for value in activity %}
+                    <li class="text-justify">
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">
+                                <span class="font-weight-bold">{{ value.institute_name }} </span>
+                            </li>
+
+                            <li class="list-group-item font-italic">{{ value.role|linebreaksbr }}</li>
+
+                            {% if value.description != "" %}
+                            <li class="list-group-item">{{ value.description }}</li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- International Program -->
+    <div class="col-12">
+        <div class="card box-shadow-full p-0 rounded">
+            <h4 class="card-title text-uppercase bg-dark text-light rounded-top p-2">International Program</h4>
+            <div class="card-body py-0">
+                {% if international_program|length == 0 %}
+                <div class="col-12 text-center">
+                    <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
+                </div>
+                {% else %}
+                <ol class="px-3">
+                    {% for value in international_program %}
+                    {% if forloop.first %}
+                    <li class="text-justify">
+                        {% else %}
+                    <li class="border-top text-justify">
+                        {% endif %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{{ value.description }}</li>
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Publication -->
+    <div class="col-12">
+        <div class="card box-shadow-full p-0 rounded">
+            <h4 class="card-title text-uppercase bg-dark text-light rounded-top p-2">Publication</h4>
+            <div class="card-body py-0">
+                {% if publication|length == 0 %}
+                <div class="col-12 text-center">
+                    <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
+                </div>
+                {% else %}
+                <ol class="px-3">
+                    {% for value in publication %}
+                    {% if forloop.first %}
+                    <li class="text-justify">
+                        {% else %}
+                    <li class="border-top text-justify">
+                        {% endif %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{{ value.description }}</li>
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Travel -->
+    <div class="col-12">
+        <div class="card box-shadow-full p-0 rounded">
+            <h4 class="card-title text-uppercase bg-dark text-light rounded-top p-2">Travel</h4>
+            <div class="card-body py-0">
+                {% if travel|length == 0 %}
+                <div class="col-12 text-center">
+                    <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
+                </div>
+                {% else %}
+                <ol class="px-3">
+                    {% for value in travel %}
+                    {% if forloop.first %}
+                    <li class="text-justify">
+                        {% else %}
+                    <li class="border-top text-justify">
+                        {% endif %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{{ value.description }}</li>
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Skill -->
+    <div class="col-12">
+        <div class="card box-shadow-full p-0 rounded">
+            <h4 class="card-title text-uppercase bg-dark text-light rounded-top p-2">Skill</h4>
+            <div class="card-body py-0">
+                {% if skill|length == 0 %}
+                <div class="col-12 text-center">
+                    <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
+                </div>
+                {% else %}
+                <ol class="px-3">
+                    {% for value in skill %}
+                    {% if forloop.first %}
+                    <li class="text-justify">
+                        {% else %}
+                    <li class="border-top text-justify">
+                        {% endif %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{{ value.description }}</li>
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock content %}
