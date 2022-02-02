@@ -7,25 +7,26 @@
 <div class="col-10 offset-1">
     <h1 class="text-capitalize">Video Gallery</h1>
     <hr>
-    {% if videos|length == 0 %}
+    {% if video_category|length == 0 %}
     <div class="col-12 text-center">
         <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
     </div>
     {% else %}
     <div class="row">
-        {% for video in videos %}
+        {% for video in video_category %}
         <div class="col-6 col-md-3 my-2 px-sm-1 px-md-3">
-            <div class="card col-12 p-0 box-shadow">
-                <div class="embed-responsive embed-responsive-16by9 p-0">
-                    <iframe class="embed-responsive-item" src="{{ video.link }}" allowfullscreen></iframe>
-                </div>
-                <div class="card-body py-2 px-4">
-                    <p class="card-title font-weight-bold">{{ video.title|truncatechars:35 }}</p>
-                </div>
-                <div class="card-footer text-muted">
-                    Category: <span class="text-uppercase">{{ video.video_category.title }}</span>
-                </div>
-            </div>
+            <a href="{% url 'video_collection' video.id video.title %}">
+                <div class="card col-12 box-shadow-full p-0">
+                    <button class="border-0 rounded-top col-12"
+                         style="background-image: url('{{ video.cover_image.url }}'); background-repeat: no-repeat; background-size: cover; height: 400px; background-position: center;"
+                         data-bs-toggle="modal" data-bs-target="#pictureModal{{video.id}}" data-toggle="modal"
+                         data-target="#pictureModal{{video.id}}">
+                    </button>
+                    <div class="card-body">
+                         <p class="card-title font-weight-bold">{{ video.title|truncatechars:35 }}</p>
+                    </div>
+               </div>
+            </a>
         </div>
         {% endfor %}
     </div>
@@ -35,9 +36,9 @@
             {% for i in pages %}
             {% if i == current %}
             <li class="page-item active">
-            {% else %}
+                {% else %}
             <li class="page-item">
-            {% endif %}
+                {% endif %}
                 <a class="page-link" href="{% url 'video_gallery' %}?page={{i}}">{{ i }}</a>
             </li>
             {% endfor %}
@@ -45,6 +46,4 @@
     </nav>
     {% endif %}
 </div>
-
-
 {% endblock content %}

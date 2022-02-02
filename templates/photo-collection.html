@@ -5,28 +5,26 @@
 <link href="{% static 'assets/css/photogallery.css' %}" rel="stylesheet">
 <div style="height: 100px;"></div>
 <div class="col-10 mb-3 offset-1">
-     <h3 class="text-capitalize">Photo Gallery</h3>
+     <h3 class="text-capitalize">Photo Gallery / {{ album }}</h3>
      <hr>
-     {% if albums|length == 0 %}
+     {% if images|length == 0 %}
      <div class="col-12 text-center">
         <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
      </div>
     {% else %}
      <div class="row">
-          {% for album in albums %}
+          {% for image in images %}
           <div class="col-md-5 col-lg-4 px-4">
-               <a href="{% url 'photo_collection' album.id album.name %}">
-                    <div class="card col-12 box-shadow-full p-0">
-                         <button class="border-0 rounded-top col-12"
-                              style="background-image: url('{{ album.cover_image.url }}'); background-repeat: no-repeat; background-size: cover; height: 400px; background-position: center;"
-                              data-bs-toggle="modal" data-bs-target="#pictureModal{{album.id}}" data-toggle="modal"
-                              data-target="#pictureModal{{album.id}}">
-                         </button>
-                         <div class="card-body">
-                              <p class="card-title font-weight-bold">{{ album.name|truncatechars:35 }}</p>
-                         </div>
+               <div class="card col-12 box-shadow-full p-0">
+                    <button class="border-0 rounded-top col-12"
+                         style="background-image: url('{{ image.file.url }}'); background-repeat: no-repeat; background-size: cover; height: 400px; background-position: center;"
+                         data-bs-toggle="modal" data-bs-target="#pictureModal{{image.id}}" data-toggle="modal"
+                         data-target="#pictureModal{{image.id}}">
+                    </button>
+                    <div class="card-body">
+                         <p class="card-title font-weight-bold">{{ image.caption|truncatechars:50 }}</p>
                     </div>
-               </a>
+               </div>
           </div>
           {% endfor %}
      </div>
@@ -39,7 +37,7 @@
                     {% else %}
                <li class="page-item">
                     {% endif %}
-                    <a class="page-link" href="{% url 'photo_gallery' %}?page={{i}}">{{ i }}</a>
+                    <a class="page-link" href="{% url 'photo_collection' id album %}?page={{i}}">{{ i }}</a>
                </li>
                {% endfor %}
           </ul>
@@ -47,14 +45,14 @@
      {% endif %}
 </div>
 <!-- Modal -->
-{% for album in albums %}
-<div class="modal fade" id="pictureModal{{album.id}}" tabindex="-1" role="dialog" aria-labelledby="pictureModalTitle"
+{% for image in images %}
+<div class="modal fade" id="pictureModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="pictureModalTitle"
      aria-hidden="true">
      <div class="modal-dialog modal-dialog-centered modal-lg p-0" role="document">
           <div class="modal-content">
                <div class="container-fluid p-0">
                     <!-- <img class="img-fluid" src="{{ image.cover_image.url }}" alt=""> -->
-                    <img class="col-12 rounded p-0" src="{{ album.cover_image.url }}" alt="..."
+                    <img class="col-12 rounded p-0" src="{{ image.file.url }}" alt="..."
                          style="object-fit: cover; min-height:50%; max-height: 80%; width: 100%;">
 
                </div>

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link href="{% static 'assets/css/photogallery.css' %}" rel="stylesheet">
+<div style="height: 100px;"></div>
+<div class="col-10 offset-1">
+    <h3 class="text-capitalize">Video Gallery / {{ video_category }}</h3>
+    <hr>
+    {% if videos|length == 0 %}
+    <div class="col-12 text-center">
+        <h4 class="text-muted" style="margin-top: 30px; margin-bottom: 30px;">No records found</h4>
+    </div>
+    {% else %}
+    <div class="row">
+        {% for video in videos %}
+        <div class="col-6 col-md-3 my-2 px-sm-1 px-md-3">
+            <div class="card col-12 p-0 box-shadow">
+                <div class="embed-responsive embed-responsive-16by9 p-0">
+                    <iframe class="embed-responsive-item" src="{{ video.link }}" allowfullscreen></iframe>
+                </div>
+                <div class="card-body py-2 px-4">
+                    <p class="card-title font-weight-bold">{{ video.title|truncatechars:35 }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+    <nav aria-label="Page navigation my-4">
+        <ul class="pagination justify-content-center">
+            {% for i in pages %}
+            {% if i == current %}
+            <li class="page-item active">
+            {% else %}
+            <li class="page-item">
+            {% endif %}
+                <a class="page-link" href="{% url 'video_collection' id video_category %}?page={{i}}">{{ i }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+
+{% endblock content %}

@@ -43,7 +43,29 @@ def photo_gallery(request):
     mainmenu = Mainmenu.objects.all().order_by('order_by')
     background = Mainmenu_background.objects.filter(status='active').first()
 
-    images = Image.objects.filter(status='active').order_by('-created')
+    albums = Album.objects.filter(status='active').order_by('name')
+
+    bio = Biography.objects.first()
+
+    paginator = Paginator(albums, 9)
+    page_number = request.GET.get('page', 1)
+    single_page_albums = paginator.get_page(page_number)
+
+    context = {
+        'mainmenu': mainmenu,
+        'background': background,
+        'bio_data' : bio,
+        'albums': single_page_albums,
+        'current': int(page_number),
+        'pages': range(1, (paginator.num_pages+1))
+    }
+    return render(request, 'photo-gallery.html', context=context)
+
+def photo_collection(request, id, album):
+    mainmenu = Mainmenu.objects.all().order_by('order_by')
+    background = Mainmenu_background.objects.filter(status='active').first()
+
+    images = Image.objects.filter(status='active', album__id=id).order_by('-created')
 
     bio = Biography.objects.first()
 
@@ -55,18 +77,19 @@ def photo_gallery(request):
         'mainmenu': mainmenu,
         'background': background,
         'bio_data' : bio,
+        'id': id,
+        'album': album,
         'images': single_page_images,
         'current': int(page_number),
         'pages': range(1, (paginator.num_pages+1))
     }
-    return render(request, 'photo-gallery.html', context=context)
-
+    return render(request, 'photo-collection.html', context=context)
 
 def video_gallery(request):
     mainmenu = Mainmenu.objects.all().order_by('order_by')
     background = Mainmenu_background.objects.filter(status='active').first()
 
-    videos = Video.objects.filter(status='active').order_by('-created')
+    videos = Video_category.objects.filter(status='active').order_by('title')
    
     bio = Biography.objects.first()
 
@@ -78,12 +101,35 @@ def video_gallery(request):
         'mainmenu': mainmenu,
         'background': background,
         'bio_data' : bio,        
-        'videos': single_page_video,
+        'video_category': single_page_video,
         'current': int(page_number),
         'pages': range(1, (paginator.num_pages+1))
     }
     return render(request, 'video-gallery.html', context=context)
 
+def video_collection(request, id, category):
+    mainmenu = Mainmenu.objects.all().order_by('order_by')
+    background = Mainmenu_background.objects.filter(status='active').first()
+
+    videos = Video.objects.filter(status='active', video_category__id=id).order_by('-created')
+
+    bio = Biography.objects.first()
+
+    paginator = Paginator(videos, 1)
+    page_number = request.GET.get('page', 1)
+    single_page_videos = paginator.get_page(page_number)
+
+    context = {
+        'mainmenu': mainmenu,
+        'background': background,
+        'bio_data' : bio,
+        'id': id,
+        'video_category': category,
+        'videos': single_page_videos,
+        'current': int(page_number),
+        'pages': range(1, (paginator.num_pages+1))
+    }
+    return render(request, 'video-collection.html', context=context)
 
 def article(request):
     mainmenu = Mainmenu.objects.all().order_by('order_by')
@@ -148,6 +194,8 @@ def biography(request):
         }
         
     return render(request, 'biography.html', context=context)
+
+
 
 def contact_us(request):
     if request.method == 'POST':

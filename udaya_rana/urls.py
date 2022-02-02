@@ -22,5 +22,7 @@ urlpatterns = [
     path('videogallery', views.video_gallery, name="video_gallery"),
     path('article/', views.article, name="article"),
     path('biography', views.biography, name="biography"),
+    path('photogallery/<str:id>/<str:album>', views.photo_collection, name="photo_collection"),
+    path('videogallery/<str:id>/<str:category>', views.video_collection, name="video_collection"),
     path('contact_us', views.contact_us, name="contact_us")
 ]
